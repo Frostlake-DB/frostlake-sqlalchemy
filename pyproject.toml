@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frostlake-sqlalchemy"
+description = "SQLAlchemy dialect for Frostlake"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "MLorek" }]
+keywords = ["frostlake", "sqlalchemy", "dialect", "sql", "database", "orm", "snowflake"]
+dynamic = ["version"]
+dependencies = [
+    "SQLAlchemy>=2.0",
+    "frostlake>=0.2.1",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Database",
+    "Topic :: Database :: Front-Ends",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://frostlake.dev"
+Source = "https://github.com/Frostlake-DB/frostlake-sqlalchemy"
+Issues = "https://github.com/Frostlake-DB/frostlake-sqlalchemy/issues"
+
+# Registers the dialect with SQLAlchemy, so create_engine("frostlake://...") works
+# without importing this package explicitly.
+[project.entry-points."sqlalchemy.dialects"]
+frostlake = "frostlake_sqlalchemy.base:FrostlakeDialect"
+"frostlake.frostlake" = "frostlake_sqlalchemy.base:FrostlakeDialect"
+
+[tool.setuptools]
+packages = ["frostlake_sqlalchemy"]
+
+[tool.setuptools.dynamic]
+version = { attr = "frostlake_sqlalchemy.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
