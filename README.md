@@ -13,7 +13,7 @@ engine = create_engine("frostlake://localhost:18082/MY_DB?schema=PUBLIC")
 ## Requirements
 
 - SQLAlchemy **2.0** or newer
-- the `frostlake` driver **0.2.1** or newer (installed as a dependency)
+- the `frostlake` driver **0.3.0** or newer (installed as a dependency)
 - a Frostlake engine **0.2.0** or newer, reachable over HTTP
 
 ## Install

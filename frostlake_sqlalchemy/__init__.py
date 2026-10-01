@@ -16,7 +16,7 @@ from .types import (
     TIMESTAMP_LTZ, TIMESTAMP_NTZ, TIMESTAMP_TZ, VARIANT,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 _registry.register("frostlake", "frostlake_sqlalchemy.base", "FrostlakeDialect")
 _registry.register("frostlake.frostlake", "frostlake_sqlalchemy.base", "FrostlakeDialect")

@@ -14,7 +14,7 @@ keywords = ["frostlake", "sqlalchemy", "dialect", "sql", "database", "orm", "sno
 dynamic = ["version"]
 dependencies = [
     "SQLAlchemy>=2.0",
-    "frostlake>=0.2.1",
+    "frostlake>=0.3.0",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
