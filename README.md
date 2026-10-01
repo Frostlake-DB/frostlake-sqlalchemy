@@ -14,7 +14,7 @@ engine = create_engine("frostlake://localhost:18082/MY_DB?schema=PUBLIC")
 
 - SQLAlchemy **2.0** or newer
 - the `frostlake` driver **0.2.1** or newer (installed as a dependency)
-- a Frostlake engine **0.0.7** or newer, reachable over HTTP
+- a Frostlake engine **0.2.0** or newer, reachable over HTTP
 
 ## Install
 
@@ -225,6 +225,15 @@ JAVA_HOME=~/.jdks/liberica-17 FROSTLAKE_CLASSPATH="<engine jar + deps>" pytest
 
 With `FROSTLAKE_CLASSPATH` unset the live tests skip and the compile tests still run, so a
 missing engine never shows up as a false pass.
+
+Set `FL_CORPUS` to the engine's testkit directory (an absolute path) and that run also
+replays the engine's language-neutral SQL corpus through the dialect (`testkit_runner.py`);
+without it, that test skips:
+
+```bash
+FL_CORPUS=/path/to/frostlake/engine/src/test/resources/testkit \
+JAVA_HOME=~/.jdks/liberica-17 FROSTLAKE_CLASSPATH="<engine jar + deps>" pytest
+```
 
 ## License
 
